@@ -1,0 +1,48 @@
+{
+  "name": "lumen-theme",
+  "displayName": "Lumen Theme",
+  "description": "A minimal, clean, and high-tech VSCode theme with monochromatic Dark and Warm Paper Light variants.",
+  "version": "0.2.0",
+  "publisher": "thousight",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "minimalist",
+    "monochromatic",
+    "dark",
+    "light",
+    "high-tech",
+    "paper"
+  ],
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#26251e",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thousight/lumen-theme"
+  },
+  "scripts": {
+    "build": "npx @vscode/vsce package --no-git-tag-version",
+    "publish": "npx @vscode/vsce publish"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Lumen Light (Blanc)",
+        "uiTheme": "vs",
+        "path": "./themes/lumen-blanc.json"
+      },
+      {
+        "label": "Lumen Dark (Noir)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/lumen-noir.json"
+      }
+    ]
+  }
+}

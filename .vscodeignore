@@ -1,0 +1,16 @@
+# Internal Project Files
+.planning/
+samples/
+allowlist_temp.toml
+project_policy_temp.toml
+
+# Development Files
+.git/
+.gitignore
+.vscode/
+package-lock.json
+node_modules/
+
+# Temporary Files
+**/*.log
+.gemini/

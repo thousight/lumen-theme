@@ -1,0 +1,5 @@
+{
+  "workflow": "standard",
+  "research": true,
+  "stack": ["VSCode Extension API", "JSON", "Node.js"]
+}
