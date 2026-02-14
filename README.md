@@ -2,17 +2,19 @@
 
 A minimal, clean, and high-tech VSCode theme featuring a monochromatic Dark variant (**Noir**) and a "Warm Paper" Light variant (**Blanc**).
 
+## Design Philosophy
+...
+- **Blanc (Light):** A soft, warm paper aesthetic using muted colors that prioritize legibility and long-form coding comfort.
+
+## Screenshots
+
+### Lumen Noir (Dark)
 ![Noir Python](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/noir_python.png)
 ![Noir TypeScript](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/noir_typescript.png)
+
+### Lumen Blanc (Light)
 ![Blanc Python](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/blanc_python.png)
 ![Blanc TypeScript](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/blanc_typescript.png)
-
-## Design Philosophy
-
-Lumen is built on the principle of **Functional Hierarchy**. Instead of overwhelming the editor with a full color palette, Lumen uses color and brightness strategically to guide your focus.
-
-- **Noir (Dark):** A strictly monochromatic experience with an International Orange accent reserved for logical flow (functions, control flow, tags).
-- **Blanc (Light):** A soft, warm paper aesthetic using muted colors that prioritize legibility and long-form coding comfort.
 
 ## Features
 
@@ -37,10 +39,6 @@ _Inspired by the tactile feel of premium stationery._
 
 - **Palette:** Muted multi-color for a soft, readable hierarchy.
 - **Background:** Warm off-white (`#f7f7f4`).
-
-## Screenshots
-
-_(Screenshots coming soon)_
 
 ## Installation
 
