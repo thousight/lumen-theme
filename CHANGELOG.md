@@ -1,3 +1,11 @@
+## [0.2.2](https://github.com/thousight/lumen-theme/compare/v0.2.1...v0.2.2) (2026-09-06)
+
+### Bug Fixes
+
+* brighten Blanc blue accents ([#3](https://github.com/thousight/lumen-theme/issues/3)) ([cecae22](https://github.com/thousight/lumen-theme/commit/cecae22f506f9a9b1169f1c7af85d0c1a642d97a))
+* **ci:** align changelog preset with semantic-release ([#4](https://github.com/thousight/lumen-theme/issues/4)) ([e1964d2](https://github.com/thousight/lumen-theme/commit/e1964d2a6d3cd2651e68aaba1f461c39ae78fb9f))
+* **ci:** use release token for generated commits ([#5](https://github.com/thousight/lumen-theme/issues/5)) ([ef2cffe](https://github.com/thousight/lumen-theme/commit/ef2cffe47aab0ab665e39522736c2f5941c63620))
+
 # Changelog
 
 All notable changes to the "Lumen Theme" extension will be documented in this file.
