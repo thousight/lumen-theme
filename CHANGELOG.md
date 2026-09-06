@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/thousight/lumen-theme/compare/v0.2.2...v0.2.3) (2026-09-06)
+
+### Bug Fixes
+
+* **ci:** lint commits since latest release ([#7](https://github.com/thousight/lumen-theme/issues/7)) ([4e3cb55](https://github.com/thousight/lumen-theme/commit/4e3cb555cfb2182384958075ad766baa01d8b362))
+* **ci:** skip workflows for release commits ([#6](https://github.com/thousight/lumen-theme/issues/6)) ([7d4de6b](https://github.com/thousight/lumen-theme/commit/7d4de6b2c4167c8c0c72dce7e0420a7666e1b498))
+
 ## [0.2.2](https://github.com/thousight/lumen-theme/compare/v0.2.1...v0.2.2) (2026-09-06)
 
 ### Bug Fixes

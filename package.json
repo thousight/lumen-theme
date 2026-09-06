@@ -2,7 +2,7 @@
   "name": "lumen-theme",
   "displayName": "Lumen Theme",
   "description": "A minimal, clean, and high-tech VSCode theme with monochromatic Dark and Warm Paper Light variants.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "publisher": "thousight",
   "engines": {
     "vscode": "^1.80.0"
