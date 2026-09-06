@@ -52,6 +52,10 @@ _Inspired by the tactile feel of premium stationery._
 3. Click **Install**.
 4. Go to `File > Preferences > Theme > Color Theme` and select `Lumen Noir` or `Lumen Blanc`.
 
+## Development
+
+See [project notes](https://github.com/thousight/lumen-theme/blob/main/.planning/README.md) for design and maintenance guidance. Track bugs and enhancements in [GitHub Issues](https://github.com/thousight/lumen-theme/issues).
+
 ## License
 
 MIT © [marwen](https://github.com/marwen)

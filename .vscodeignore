@@ -1,5 +1,6 @@
 # Internal Project Files
 .planning/
+AGENTS.md
 samples/
 allowlist_temp.toml
 project_policy_temp.toml

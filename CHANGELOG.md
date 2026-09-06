@@ -2,6 +2,11 @@
 
 All notable changes to the "Lumen Theme" extension will be documented in this file.
 
+## [0.2.1]
+
+### Fixed
+- **Lumen Blanc**: Keep the status bar warm white with dark text and matching borders in no-folder and debugging states.
+
 ## [0.2.0] - 2026-02-13
 
 ### Added
