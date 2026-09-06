@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { analyzeCommits } from "@semantic-release/commit-analyzer";
+import releaseConfig from "../.releaserc.cjs";
 
 const config = {
   preset: "conventionalcommits",
@@ -29,4 +30,10 @@ test("Conventional Commits map to release types", async () => {
   );
   assert.equal(await releaseType("docs: explain theme testing"), null);
   assert.equal(await releaseType("chore(release): 0.3.0"), null);
+});
+
+test("release commits skip the CI and release workflow loop", () => {
+  const gitPlugin = releaseConfig.plugins.find(([name]) => name === "@semantic-release/git");
+  assert.ok(gitPlugin, "semantic-release git plugin must be configured");
+  assert.match(gitPlugin[1].message, /\[skip ci\]/);
 });
