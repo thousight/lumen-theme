@@ -45,7 +45,7 @@ jobs:
         run: |
           git fetch origin main --tags
           test "$(git rev-parse origin/main)" = "$TESTED_SHA"
-      - name: Require the verified release baseline
+      - name: Require the verified release history
         run: git merge-base --is-ancestor v0.2.1 HEAD
       - run: npm run lint:release-commits
       - name: Allow Electron sandbox on the disposable runner

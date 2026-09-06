@@ -37,11 +37,11 @@ Squash PRs so the resulting `main` commit has a Conventional Commit title and a 
 
 Breaking changes require both `!` in the title and a nonempty `BREAKING CHANGE:` footer. Descriptions may use normal prose; semantic-release uses the title and breaking footer to determine the release.
 
-The migration boundary in `.release-baseline` excludes legacy commits from linting. The verified `v0.2.1` tag and Open VSX package both correspond to commit `d5b6fc8`.
+Release commit linting starts at the latest verified release tag, so legacy history before `v0.2.1` is not re-linted. The verified `v0.2.1` tag and Open VSX package both correspond to commit `d5b6fc8`.
 
 ## Release
 
-`.github/workflows/release.yml` starts only after the `CI` workflow succeeds on `main`. It checks that `main` has not advanced beyond the tested SHA, uses full history, verifies `v0.2.1`, lints post-migration commits, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
+`.github/workflows/release.yml` starts only after the `CI` workflow succeeds on `main`. It checks that `main` has not advanced beyond the tested SHA, uses full history, verifies the release history, lints commits since the latest release tag, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
 
 Plugins run in this order:
 
