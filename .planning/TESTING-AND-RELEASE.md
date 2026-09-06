@@ -1,6 +1,6 @@
 # Theme testing and automated releases
 
-Implemented 2026-09-06. GitHub-hosted rendering validation is pending.
+Implemented and validated on GitHub-hosted Ubuntu runners on 2026-09-06.
 
 ## Workflow
 
