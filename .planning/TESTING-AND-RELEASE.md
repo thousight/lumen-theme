@@ -5,7 +5,7 @@ Implemented and validated on GitHub-hosted Ubuntu runners on 2026-09-06.
 ## Workflow
 
 - Pull requests run theme, package, VS Code rendering, and minimum-version compatibility tests without secrets.
-- Pushes to `main` repeat those tests. The release job then validates commit messages and runs semantic-release.
+- Pushes to `main` repeat those tests. A separate release workflow starts after a successful `CI` run, validates commit messages, and runs semantic-release.
 - GitHub Issues track follow-up work.
 
 Semantic-release and its locked plugins determine the version, update `CHANGELOG.md`, build and test the VSIX, publish it to Open VSX, and create the GitHub release. No release-worthy commit means no publication. Microsoft Marketplace publication remains manual.
@@ -22,7 +22,7 @@ Semantic-release and its locked plugins determine the version, update `CHANGELOG
 
 The UI test installs the built VSIX into isolated profiles. It waits for each theme, checks workbench and syntax colors, and rejects zero discovered tests. Blanc must keep its warm-white status bar in the Extension Development Host; Noir keeps the pinned VS Code purple default there. Exact color assertions are limited to the tested scenes and versions.
 
-CI runs desktop tests through Xvfb on `ubuntu-24.04`. Action revisions, Node, VS Code, and development dependencies are pinned. Failure diagnostics include hidden ExTester screenshots and logs.
+CI runs desktop tests through Xvfb on `ubuntu-24.04`. Action revisions, Node 24 LTS, VS Code, and development dependencies are pinned. Failure diagnostics include hidden ExTester screenshots and logs.
 
 ## Commit contract
 
@@ -41,7 +41,7 @@ The migration boundary in `.release-baseline` excludes legacy commits from linti
 
 ## Release
 
-The `main` release job runs only after all test jobs pass. It uses full history, verifies `v0.2.1`, lints post-migration commits, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
+`.github/workflows/release.yml` starts only after the `CI` workflow succeeds on `main`. It checks that `main` has not advanced beyond the tested SHA, uses full history, verifies `v0.2.1`, lints post-migration commits, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
 
 Plugins run in this order:
 
