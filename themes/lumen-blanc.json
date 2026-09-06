@@ -45,7 +45,7 @@
     "editorLineNumber.activeForeground": "#1a1a1acc",
     "editorIndentGuide.background": "#1a1a1a22",
     "editorIndentGuide.activeBackground": "#1a1a1a44",
-    "editorBracketHighlight.foreground1": "#3e5b7c",
+    "editorBracketHighlight.foreground1": "#496d91",
     "editorBracketHighlight.foreground2": "#a04a3a",
     "editorBracketHighlight.foreground3": "#4a6d6c",
     "editorBracketHighlight.foreground4": "#6a4a7a",
@@ -62,7 +62,7 @@
     "errorLens.warningBackground": "#fff3cd44",
     "errorLens.warningForeground": "#daa520",
     "errorLens.infoBackground": "#d1ecf144",
-    "errorLens.infoForeground": "#3e5b7c",
+    "errorLens.infoForeground": "#496d91",
     "gitlens.gutterBackgroundColor": "#f7f7f4",
     "gitlens.gutterAddedForegroundColor": "#6b8e23",
     "gitlens.gutterModifiedForegroundColor": "#daa520",
@@ -71,7 +71,7 @@
     "terminal.ansiRed": "#a04a3a",
     "terminal.ansiGreen": "#587053",
     "terminal.ansiYellow": "#a67c00",
-    "terminal.ansiBlue": "#3e5b7c",
+    "terminal.ansiBlue": "#496d91",
     "terminal.ansiMagenta": "#6a4a7a",
     "terminal.ansiCyan": "#4a6d6c",
     "terminal.ansiWhite": "#d0d0d0",
@@ -116,7 +116,7 @@
         "entity.name.function.macro.rust"
       ],
       "settings": {
-        "foreground": "#3e5b7c"
+        "foreground": "#496d91"
       }
     },
     {
@@ -206,7 +206,7 @@
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#3e5b7c"
+        "foreground": "#496d91"
       }
     },
     {
@@ -260,8 +260,8 @@
   ],
   "semanticHighlighting": true,
   "semanticTokenColors": {
-    "function": "#3e5b7c",
-    "method": "#3e5b7c",
+    "function": "#496d91",
+    "method": "#496d91",
     "variable": "#506680",
     "parameter": "#806050",
     "property": "#607060"
