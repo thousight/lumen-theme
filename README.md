@@ -56,6 +56,15 @@ _Inspired by the tactile feel of premium stationery._
 
 See [project notes](https://github.com/thousight/lumen-theme/blob/main/.planning/README.md) for design and maintenance guidance. Track bugs and enhancements in [GitHub Issues](https://github.com/thousight/lumen-theme/issues).
 
+```sh
+npm ci
+npm test
+npm run test:package
+npm run test:ui
+```
+
+Pull requests use Conventional Commit titles. Merges to `main` release automatically to Open VSX when semantic-release detects a `fix`, `feat`, or breaking change.
+
 ## License
 
 MIT © [marwen](https://github.com/marwen)
