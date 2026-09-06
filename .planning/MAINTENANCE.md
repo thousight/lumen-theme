@@ -2,17 +2,18 @@
 
 ## Editing and validation
 
-The extension has no runtime code or compilation step. `npm run build` packages the JSON themes and assets with `@vscode/vsce`. Node.js and npm are needed; `npx` may download the packaging tool. The current script does not pin its version.
+The extension has no runtime code. Development dependencies are pinned in `package-lock.json`; use the Node version in `.node-version`.
 
 After editing a theme, validate both theme files and the manifest:
 
 ```sh
-node -e 'const fs = require("fs"); for (const p of ["package.json", "themes/lumen-blanc.json", "themes/lumen-noir.json"]) JSON.parse(fs.readFileSync(p, "utf8")); console.log("JSON valid");'
+npm ci
+npm test
 git diff --check
-npm run build
+npm run test:package
 ```
 
-JSON parsing verifies syntax, not whether every color key or scope is supported. Consult the official theme references for keys and use the editor to verify behavior. For documentation-only changes, check links and whitespace; rebuild when packaging exclusions change.
+Run `npm run test:ui` for visual changes. It installs the built VSIX into pinned VS Code test instances and checks rendered workbench and syntax colors for both variants. Run `npm run test:compat` to check discovery on VS Code 1.80. Linux CI wraps desktop tests in Xvfb.
 
 ## Visual checks
 
@@ -25,23 +26,12 @@ Install the generated VSIX through VS Code's **Extensions: Install from VSIX...*
 
 ## Package inspection
 
-`npm run build` produces `lumen-theme-<version>.vsix` without bumping the version. Inspect its contents with `unzip -l` and confirm the manifest and both theme files are included. `.planning/`, `AGENTS.md`, and `samples/` must remain excluded. Generated VSIX files are ignored by Git.
+`npm run build` produces `dist/lumen-theme.vsix` without bumping the version. `npm run test:package` verifies identity, version, required files, and exclusions. Generated artifacts are ignored by Git.
 
 ## Changelog and release
 
-Keep user-visible changes in the root `CHANGELOG.md` under `Unreleased`, grouped as `Added`, `Changed`, or `Fixed` as needed. GitHub Issues tracks future work; the changelog records delivered changes. Do not invent release dates from local version tags or packaging success.
+Squash PRs with a Conventional Commit title and meaningful description. GitHub Actions runs the checks after merge; semantic-release then derives the version and changelog, packages the extension, publishes the same VSIX to Open VSX, and attaches it to a GitHub release. `GH_TOKEN` authenticates GitHub and `OPEN_VSX_TOKEN` is exposed to the Open VSX CLI as `OVSX_PAT`.
 
-1. Check the existing package version and Marketplace release before choosing a new version. Update `package.json` once for the intended release, and prepare the matching changelog entry. Keep changes under `Unreleased` until publication is confirmed.
-2. Run validation, perform relevant visual checks, build, and inspect the VSIX.
-3. Publish the exact verified artifact when a release is requested. For example, for version 0.2.1:
+Do not manually bump `package.json` or add routine release entries. A release failure must retry the prepared version/artifact rather than create another version. Microsoft Marketplace publication remains manual.
 
-   ```sh
-   npm run publish -- --packagePath lumen-theme-0.2.1.vsix
-   ```
-
-   Alternatively upload that same VSIX in the [Marketplace publisher dashboard](https://marketplace.visualstudio.com/manage/publishers/thousight).
-4. Confirm publication, date the changelog entry, and sync the release metadata and tag to GitHub. A successful build or GitHub merge alone does not confirm a Marketplace release.
-
-If authentication fails, refresh credentials locally with `npx @vscode/vsce login thousight`. Keep tokens out of chat and repository files. Retry the same version or artifact; do not rerun `npm run publish -- patch`, which can bump, commit, and tag another version before publication succeeds. If the version already exists remotely, verify it before deciding whether a new release is needed.
-
-See the [official publishing guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) for current authentication and Marketplace requirements.
+See [testing and automated releases](TESTING-AND-RELEASE.md) for the implementation contract.

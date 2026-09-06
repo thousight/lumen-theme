@@ -11,6 +11,15 @@ project_policy_temp.toml
 .vscode/
 package-lock.json
 node_modules/
+tests/
+scripts/
+.github/
+.node-version
+commitlint.config.cjs
+.releaserc.cjs
+.release-baseline
+test-results/
+dist/
 
 # Temporary Files
 **/*.log

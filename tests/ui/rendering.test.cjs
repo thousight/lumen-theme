@@ -1,0 +1,51 @@
+const assert = require("node:assert/strict");
+const { writeFile } = require("node:fs/promises");
+const { By, VSBrowser } = require("vscode-extension-tester");
+
+function rgb(hex) {
+  const value = hex.slice(1, 7);
+  return `rgb(${parseInt(value.slice(0, 2), 16)}, ${parseInt(value.slice(2, 4), 16)}, ${parseInt(value.slice(4, 6), 16)})`;
+}
+
+describe("Lumen rendering", function () {
+  this.timeout(30_000);
+
+  it("applies the selected theme to real workbench surfaces", async function () {
+    const browser = VSBrowser.instance;
+    await browser.waitForWorkbench();
+    const driver = browser.driver;
+    const expected = rgb(process.env.LUMEN_EXPECTED_BACKGROUND);
+
+    for (const selector of [
+      ".part.activitybar",
+      ".part.sidebar",
+      ".monaco-editor-background",
+    ]) {
+      const element = await driver.findElement(By.css(selector));
+      const actual = await driver.executeScript(
+        "return window.getComputedStyle(arguments[0]).backgroundColor",
+        element,
+      );
+      assert.equal(actual, expected, `${selector} rendered ${actual}, expected ${expected}`);
+    }
+
+    const statusBar = await driver.findElement(By.css(".part.statusbar"));
+    const statusColor = await driver.executeScript(
+      "return window.getComputedStyle(arguments[0]).backgroundColor",
+      statusBar,
+    );
+    assert.equal(statusColor, rgb(process.env.LUMEN_EXPECTED_STATUS_BACKGROUND));
+
+    const renderedTokenColors = new Set(
+      await driver.executeScript(
+        "return Array.from(document.querySelectorAll('.view-lines span')).map((node) => window.getComputedStyle(node).color)",
+      ),
+    );
+    for (const color of process.env.LUMEN_EXPECTED_TOKEN_COLORS.split(",")) {
+      assert.ok(renderedTokenColors.has(rgb(color)), `syntax token color ${color} was not rendered`);
+    }
+
+    await browser.takeScreenshot(`lumen-${process.env.LUMEN_THEME_SLUG}`);
+    await writeFile(process.env.LUMEN_RESULT_FILE, "passed\n");
+  });
+});

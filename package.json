@@ -28,8 +28,18 @@
     "url": "https://github.com/thousight/lumen-theme"
   },
   "scripts": {
-    "build": "npx @vscode/vsce package --no-git-tag-version",
-    "publish": "npx @vscode/vsce publish"
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/theme.test.mjs tests/commit-contract.test.mjs",
+    "test:package": "npm run build && node --test tests/package.test.mjs",
+    "test:package:artifact": "node --test tests/package.test.mjs",
+    "test:ui": "npm run build && npm run test:ui:artifact",
+    "test:ui:artifact": "node scripts/run-ui-tests.mjs",
+    "test:compat": "npm run build && node scripts/run-compat-test.mjs",
+    "test:all": "npm test && npm run test:package && npm run test:ui:artifact && npm run test:compat",
+    "lint:pr-message": "node scripts/lint-pr-message.mjs",
+    "lint:release-commits": "node scripts/lint-release-commits.mjs",
+    "checksum": "node scripts/create-checksum.mjs",
+    "release": "semantic-release"
   },
   "contributes": {
     "themes": [
@@ -44,5 +54,26 @@
         "path": "./themes/lumen-noir.json"
       }
     ]
+  },
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "20.1.0",
+    "@commitlint/config-conventional": "20.0.0",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/exec": "7.1.0",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "12.0.6",
+    "@semantic-release/npm": "13.1.4",
+    "@semantic-release/release-notes-generator": "14.1.0",
+    "@vscode/test-electron": "2.5.2",
+    "@vscode/vsce": "3.9.2",
+    "adm-zip": "0.6.0",
+    "conventional-changelog-conventionalcommits": "9.1.0",
+    "json-dup-key-validator": "1.0.3",
+    "mocha": "12.0.0",
+    "ovsx": "0.10.7",
+    "semantic-release": "25.0.9",
+    "vscode-extension-tester": "8.22.0"
   }
 }

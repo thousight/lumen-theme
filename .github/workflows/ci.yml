@@ -1,0 +1,127 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CI: true
+  VSCODE_UI_VERSION: 1.109.4
+  VSCODE_COMPAT_VERSION: 1.80.0
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:package
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: lumen-vsix
+          path: dist/lumen-theme.vsix
+          if-no-files-found: error
+
+  rendering:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Allow Electron sandbox on the disposable runner
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Test rendering in VS Code
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' npm run test:ui:artifact
+      - name: Upload rendering diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rendering-diagnostics
+          path: |
+            .vscode-test/**/screenshots/**/*.png
+            .vscode-test/**/chromedriver.log
+            .vscode-test/**/crashes/**
+          if-no-files-found: warn
+
+  compatibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Allow Electron sandbox on the disposable runner
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Test VS Code 1.80 compatibility
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' npm run test:compat
+
+  ci:
+    if: always()
+    needs: [validate, rendering, compatibility]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require every CI job
+        env:
+          VALIDATE: ${{ needs.validate.result }}
+          RENDERING: ${{ needs.rendering.result }}
+          COMPATIBILITY: ${{ needs.compatibility.result }}
+        run: test "$VALIDATE" = success -a "$RENDERING" = success -a "$COMPATIBILITY" = success
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [validate, rendering, compatibility, ci]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      OVSX_PAT: ${{ secrets.OPEN_VSX_TOKEN }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Require the verified release baseline
+        run: git merge-base --is-ancestor v0.2.1 HEAD
+      - run: npm run lint:release-commits
+      - name: Allow Electron sandbox on the disposable runner
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Release deterministically
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' npm run release
+      - name: Retain prepared release files
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-files-${{ github.run_id }}
+          path: |
+            dist/lumen-theme.vsix
+            dist/lumen-theme.vsix.sha256
+          if-no-files-found: ignore
