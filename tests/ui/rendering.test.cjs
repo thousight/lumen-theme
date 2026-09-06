@@ -7,6 +7,22 @@ function rgb(hex) {
   return `rgb(${parseInt(value.slice(0, 2), 16)}, ${parseInt(value.slice(2, 4), 16)}, ${parseInt(value.slice(4, 6), 16)})`;
 }
 
+async function waitForColor(driver, selector, property, expected) {
+  await driver.wait(
+    async () => {
+      const candidate = await driver.findElement(By.css(selector));
+      return (await driver.executeScript(
+        "return window.getComputedStyle(arguments[0])[arguments[1]]",
+        candidate,
+        property,
+      )) === expected;
+    },
+    10_000,
+    `${selector} did not render ${expected}`,
+  );
+  return driver.findElement(By.css(selector));
+}
+
 describe("Lumen rendering", function () {
   this.timeout(30_000);
 
@@ -21,7 +37,7 @@ describe("Lumen rendering", function () {
       ".part.sidebar",
       ".monaco-editor-background",
     ]) {
-      const element = await driver.findElement(By.css(selector));
+      const element = await waitForColor(driver, selector, "backgroundColor", expected);
       const actual = await driver.executeScript(
         "return window.getComputedStyle(arguments[0]).backgroundColor",
         element,
@@ -29,12 +45,18 @@ describe("Lumen rendering", function () {
       assert.equal(actual, expected, `${selector} rendered ${actual}, expected ${expected}`);
     }
 
-    const statusBar = await driver.findElement(By.css(".part.statusbar"));
+    const expectedStatus = rgb(process.env.LUMEN_EXPECTED_STATUS_BACKGROUND);
+    const statusBar = await waitForColor(
+      driver,
+      ".part.statusbar",
+      "backgroundColor",
+      expectedStatus,
+    );
     const statusColor = await driver.executeScript(
       "return window.getComputedStyle(arguments[0]).backgroundColor",
       statusBar,
     );
-    assert.equal(statusColor, rgb(process.env.LUMEN_EXPECTED_STATUS_BACKGROUND));
+    assert.equal(statusColor, expectedStatus);
 
     const renderedTokenColors = new Set(
       await driver.executeScript(

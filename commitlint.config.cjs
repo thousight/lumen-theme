@@ -18,6 +18,7 @@ module.exports = {
     },
   ],
   rules: {
+    "body-max-line-length": [0],
     "breaking-change-exclamation-mark": [2, "always"],
     "breaking-change-explanation": [2, "always"],
     "header-max-length": [2, "always", 100],

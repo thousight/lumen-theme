@@ -63,6 +63,7 @@ jobs:
             .vscode-test/**/chromedriver.log
             .vscode-test/**/crashes/**
           if-no-files-found: warn
+          include-hidden-files: true
 
   compatibility:
     runs-on: ubuntu-24.04

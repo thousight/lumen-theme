@@ -36,7 +36,6 @@
     "test:ui:artifact": "node scripts/run-ui-tests.mjs",
     "test:compat": "npm run build && node scripts/run-compat-test.mjs",
     "test:all": "npm test && npm run test:package && npm run test:ui:artifact && npm run test:compat",
-    "lint:pr-message": "node scripts/lint-pr-message.mjs",
     "lint:release-commits": "node scripts/lint-release-commits.mjs",
     "checksum": "node scripts/create-checksum.mjs",
     "release": "semantic-release"
