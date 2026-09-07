@@ -1,3 +1,9 @@
+## [0.3.0](https://github.com/thousight/lumen-themes/compare/v0.2.3...v0.3.0) (2026-09-07)
+
+### Features
+
+* **theme:** rename extension to Lumen Themes ([#8](https://github.com/thousight/lumen-themes/issues/8)) ([140d48e](https://github.com/thousight/lumen-themes/commit/140d48ebcde9716da7e26e4ef56e80f03cbacd70))
+
 ## [0.2.3](https://github.com/thousight/lumen-themes/compare/v0.2.2...v0.2.3) (2026-09-06)
 
 ### Bug Fixes
