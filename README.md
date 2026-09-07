@@ -13,13 +13,13 @@ Lumen is built on the principle of **Functional Hierarchy**. Instead of overwhel
 
 ### Lumen Noir (Dark)
 
-![Noir Python](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/noir_python.png)
-![Noir TypeScript](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/noir_typescript.png)
+![Noir Python](https://raw.githubusercontent.com/thousight/lumen-themes/main/assets/noir_python.png)
+![Noir TypeScript](https://raw.githubusercontent.com/thousight/lumen-themes/main/assets/noir_typescript.png)
 
 ### Lumen Blanc (Light)
 
-![Blanc Python](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/blanc_python.png)
-![Blanc TypeScript](https://raw.githubusercontent.com/thousight/lumen-theme/main/assets/blanc_typescript.png)
+![Blanc Python](https://raw.githubusercontent.com/thousight/lumen-themes/main/assets/blanc_python.png)
+![Blanc TypeScript](https://raw.githubusercontent.com/thousight/lumen-themes/main/assets/blanc_typescript.png)
 
 ## Features
 
@@ -56,7 +56,7 @@ The extension identifier is `thousight.lumen-themes`.
 
 ## Development
 
-See [project notes](https://github.com/thousight/lumen-theme/blob/main/.planning/README.md) for design and maintenance guidance. Track bugs and enhancements in [GitHub Issues](https://github.com/thousight/lumen-theme/issues).
+See [project notes](https://github.com/thousight/lumen-themes/blob/main/.planning/README.md) for design and maintenance guidance. Track bugs and enhancements in [GitHub Issues](https://github.com/thousight/lumen-themes/issues).
 
 ```sh
 npm ci

@@ -1,17 +1,17 @@
-## [0.2.3](https://github.com/thousight/lumen-theme/compare/v0.2.2...v0.2.3) (2026-09-06)
+## [0.2.3](https://github.com/thousight/lumen-themes/compare/v0.2.2...v0.2.3) (2026-09-06)
 
 ### Bug Fixes
 
-* **ci:** lint commits since latest release ([#7](https://github.com/thousight/lumen-theme/issues/7)) ([4e3cb55](https://github.com/thousight/lumen-theme/commit/4e3cb555cfb2182384958075ad766baa01d8b362))
-* **ci:** skip workflows for release commits ([#6](https://github.com/thousight/lumen-theme/issues/6)) ([7d4de6b](https://github.com/thousight/lumen-theme/commit/7d4de6b2c4167c8c0c72dce7e0420a7666e1b498))
+* **ci:** lint commits since latest release ([#7](https://github.com/thousight/lumen-themes/issues/7)) ([4e3cb55](https://github.com/thousight/lumen-themes/commit/4e3cb555cfb2182384958075ad766baa01d8b362))
+* **ci:** skip workflows for release commits ([#6](https://github.com/thousight/lumen-themes/issues/6)) ([7d4de6b](https://github.com/thousight/lumen-themes/commit/7d4de6b2c4167c8c0c72dce7e0420a7666e1b498))
 
-## [0.2.2](https://github.com/thousight/lumen-theme/compare/v0.2.1...v0.2.2) (2026-09-06)
+## [0.2.2](https://github.com/thousight/lumen-themes/compare/v0.2.1...v0.2.2) (2026-09-06)
 
 ### Bug Fixes
 
-* brighten Blanc blue accents ([#3](https://github.com/thousight/lumen-theme/issues/3)) ([cecae22](https://github.com/thousight/lumen-theme/commit/cecae22f506f9a9b1169f1c7af85d0c1a642d97a))
-* **ci:** align changelog preset with semantic-release ([#4](https://github.com/thousight/lumen-theme/issues/4)) ([e1964d2](https://github.com/thousight/lumen-theme/commit/e1964d2a6d3cd2651e68aaba1f461c39ae78fb9f))
-* **ci:** use release token for generated commits ([#5](https://github.com/thousight/lumen-theme/issues/5)) ([ef2cffe](https://github.com/thousight/lumen-theme/commit/ef2cffe47aab0ab665e39522736c2f5941c63620))
+* brighten Blanc blue accents ([#3](https://github.com/thousight/lumen-themes/issues/3)) ([cecae22](https://github.com/thousight/lumen-themes/commit/cecae22f506f9a9b1169f1c7af85d0c1a642d97a))
+* **ci:** align changelog preset with semantic-release ([#4](https://github.com/thousight/lumen-themes/issues/4)) ([e1964d2](https://github.com/thousight/lumen-themes/commit/e1964d2a6d3cd2651e68aaba1f461c39ae78fb9f))
+* **ci:** use release token for generated commits ([#5](https://github.com/thousight/lumen-themes/issues/5)) ([ef2cffe](https://github.com/thousight/lumen-themes/commit/ef2cffe47aab0ab665e39522736c2f5941c63620))
 
 # Changelog
 

@@ -6,7 +6,7 @@ test("release notes generator renders Conventional Commits", async () => {
   const notes = await generateNotes(
     { preset: "conventionalcommits" },
     {
-      options: { repositoryUrl: "https://github.com/thousight/lumen-theme" },
+      options: { repositoryUrl: "https://github.com/thousight/lumen-themes" },
       commits: [
         {
           message: "fix: brighten Blanc blue accents",

@@ -10,7 +10,7 @@ Lumen provides Blanc, a warm paper light theme, and Noir, a dark theme with oran
 - [Testing and automated releases](TESTING-AND-RELEASE.md): proposed rendering tests, CI, and semantic-release publishing to Open VSX; implementation status belongs in GitHub Issues.
 - [Root changelog](../CHANGELOG.md): user-visible changes and release history.
 
-[GitHub Issues](https://github.com/thousight/lumen-theme/issues) is the source of truth for open work, priorities, bugs, and task status. Link an issue from a design or research note when useful; keep its status on GitHub. There is no local backlog, phase workflow, or session-state file to maintain.
+[GitHub Issues](https://github.com/thousight/lumen-themes/issues) is the source of truth for open work, priorities, bugs, and task status. Link an issue from a design or research note when useful; keep its status on GitHub. There is no local backlog, phase workflow, or session-state file to maintain.
 
 For routine work: edit, verify, and update the changelog when relevant. Update design documentation only when a decision changes. Larger investigations may have a focused research note with sources and conclusions.
 
