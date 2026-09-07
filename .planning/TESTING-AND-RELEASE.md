@@ -5,7 +5,7 @@ Implemented and validated on GitHub-hosted Ubuntu runners on 2026-09-06.
 ## Workflow
 
 - Pull requests run theme, package, VS Code rendering, and minimum-version compatibility tests without secrets.
-- Pushes to `main` repeat those tests. A separate release workflow starts after a successful `CI` run, validates commit messages, and runs semantic-release.
+- A separate release workflow runs on pushes to `main`, after required pull request checks have passed, validates commit messages, and runs semantic-release.
 - GitHub Issues track follow-up work.
 
 Semantic-release and its locked plugins determine the version, update `CHANGELOG.md`, build and test the VSIX, publish it to Open VSX, and create the GitHub release. No release-worthy commit means no publication. Microsoft Marketplace publication remains manual.
@@ -41,7 +41,7 @@ Release commit linting starts at the latest verified release tag, so legacy hist
 
 ## Release
 
-`.github/workflows/release.yml` starts only after the `CI` workflow succeeds on `main`. It checks that `main` has not advanced beyond the tested SHA, uses full history, verifies the release history, lints commits since the latest release tag, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
+`.github/workflows/release.yml` starts on each push to `main`, which is protected by the required pull request checks. It uses full history, verifies the release history, lints commits since the latest release tag, and runs semantic-release under Xvfb because the prepare step repeats package and UI tests on the versioned artifact.
 
 Plugins run in this order:
 
