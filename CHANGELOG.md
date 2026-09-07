@@ -15,7 +15,7 @@
 
 # Changelog
 
-All notable changes to the "Lumen Theme" extension will be documented in this file.
+All notable changes to the "Lumen Themes" extension will be documented in this file.
 
 ## [0.2.1] - 2026-09-06
 

@@ -4,7 +4,7 @@ from typing import List
 @decorator
 class Verification:
     """
-    Verification class for Lumen Theme.
+    Verification class for Lumen Themes.
     """
     def __init__(self, name: str):
         self.name = name

@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const vscode = require("vscode");
 
 async function run() {
-  const extension = vscode.extensions.getExtension("thousight.lumen-theme");
+  const extension = vscode.extensions.getExtension("thousight.lumen-themes");
   assert.ok(extension, "VS Code did not discover the Lumen extension");
   assert.deepEqual(
     extension.packageJSON.contributes.themes.map(({ label, uiTheme }) => ({ label, uiTheme })),

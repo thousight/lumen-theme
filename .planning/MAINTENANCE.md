@@ -26,7 +26,7 @@ Install the generated VSIX through VS Code's **Extensions: Install from VSIX...*
 
 ## Package inspection
 
-`npm run build` produces `dist/lumen-theme.vsix` without bumping the version. `npm run test:package` verifies identity, version, required files, and exclusions. Generated artifacts are ignored by Git.
+`npm run build` produces `dist/lumen-themes.vsix` without bumping the version. `npm run test:package` verifies identity, version, required files, and exclusions. Generated artifacts are ignored by Git.
 
 ## Changelog and release
 

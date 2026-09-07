@@ -5,7 +5,7 @@ import test from "node:test";
 import AdmZip from "adm-zip";
 
 const root = path.resolve(import.meta.dirname, "..");
-const vsixPath = path.join(root, "dist/lumen-theme.vsix");
+const vsixPath = path.join(root, "dist/lumen-themes.vsix");
 
 test("VSIX contains release files and excludes repository tooling", async () => {
   const zip = new AdmZip(vsixPath);

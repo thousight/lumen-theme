@@ -47,7 +47,7 @@ Plugins run in this order:
 
 1. Analyze commits and generate release notes.
 2. Update `CHANGELOG.md`, `package.json`, and `package-lock.json`.
-3. Build, test, checksum, and publish `dist/lumen-theme.vsix` to Open VSX.
+3. Build, test, checksum, and publish `dist/lumen-themes.vsix` to Open VSX.
 4. Commit release metadata and create a GitHub release with the same VSIX and checksum.
 
 Only the release job receives credentials:

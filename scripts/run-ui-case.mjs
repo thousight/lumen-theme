@@ -21,7 +21,7 @@ const tester = new ExTester(
 );
 await tester.downloadCode(version);
 await tester.downloadChromeDriver(version);
-await tester.installVsix({ vsixFile: path.join(root, "dist/lumen-theme.vsix") });
+await tester.installVsix({ vsixFile: path.join(root, "dist/lumen-themes.vsix") });
 
 process.env.LUMEN_THEME_SLUG = slug;
 process.env.LUMEN_EXPECTED_BACKGROUND = background;

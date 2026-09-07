@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /**
- * A sample component to verify Lumen Theme syntax.
+ * A sample component to verify Lumen Themes syntax.
  */
 export const VerificationComponent: React.FC<{ title: string }> = ({ title }) => {
   const [count, setCount] = useState<number>(0);

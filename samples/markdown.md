@@ -1,4 +1,4 @@
-# Lumen Theme Verification
+# Lumen Themes Verification
 
 This file verifies **bold** and *italic* support in Markdown.
 

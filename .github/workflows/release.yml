@@ -58,6 +58,6 @@ jobs:
         with:
           name: release-files-${{ github.event.workflow_run.id }}
           path: |
-            dist/lumen-theme.vsix
-            dist/lumen-theme.vsix.sha256
+            dist/lumen-themes.vsix
+            dist/lumen-themes.vsix.sha256
           if-no-files-found: ignore
