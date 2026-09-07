@@ -30,8 +30,8 @@ Install the generated VSIX through VS Code's **Extensions: Install from VSIX...*
 
 ## Changelog and release
 
-Squash PRs with a Conventional Commit title and meaningful description. GitHub Actions runs the checks after merge; semantic-release then derives the version and changelog, packages the extension, publishes the same VSIX to Open VSX, and attaches it to a GitHub release. `GH_TOKEN` authenticates GitHub and `OPEN_VSX_TOKEN` is exposed to the Open VSX CLI as `OVSX_PAT`.
+Squash PRs with a Conventional Commit title and meaningful description. GitHub Actions runs the checks after merge; semantic-release then derives the version and changelog, packages the extension, publishes the same VSIX to Open VSX and the Visual Studio Marketplace, and attaches it to a GitHub release. `GH_TOKEN` authenticates GitHub, `OPEN_VSX_TOKEN` is exposed to the Open VSX CLI as `OVSX_PAT`, and `VSCE_PAT` authenticates the Visual Studio Marketplace CLI.
 
-Do not manually bump `package.json` or add routine release entries. A release failure must retry the prepared version/artifact rather than create another version. Microsoft Marketplace publication remains manual.
+Do not manually bump `package.json` or add routine release entries. A release failure must retry the prepared version/artifact rather than create another version. Publisher credentials stay in GitHub Actions secrets.
 
 See [testing and automated releases](TESTING-AND-RELEASE.md) for the implementation contract.

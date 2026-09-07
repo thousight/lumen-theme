@@ -8,7 +8,7 @@ Implemented and validated on GitHub-hosted Ubuntu runners on 2026-09-06.
 - A separate release workflow runs on pushes to `main`, after required pull request checks have passed, validates commit messages, and runs semantic-release.
 - GitHub Issues track follow-up work.
 
-Semantic-release and its locked plugins determine the version, update `CHANGELOG.md`, build and test the VSIX, publish it to Open VSX, and create the GitHub release. No release-worthy commit means no publication. Microsoft Marketplace publication remains manual.
+Semantic-release and its locked plugins determine the version, update `CHANGELOG.md`, build and test the VSIX, publish it to Open VSX and the Visual Studio Marketplace, and create the GitHub release. No release-worthy commit means no publication.
 
 ## Commands
 
@@ -47,7 +47,7 @@ Plugins run in this order:
 
 1. Analyze commits and generate release notes.
 2. Update `CHANGELOG.md`, `package.json`, and `package-lock.json`.
-3. Build, test, checksum, and publish `dist/lumen-themes.vsix` to Open VSX.
+3. Build, test, checksum, and publish `dist/lumen-themes.vsix` to Open VSX and the Visual Studio Marketplace.
 4. Commit release metadata and create a GitHub release with the same VSIX and checksum.
 
 Only the release job receives credentials:
@@ -55,9 +55,11 @@ Only the release job receives credentials:
 ```yaml
 GH_TOKEN: ${{ secrets.GH_TOKEN }}
 OVSX_PAT: ${{ secrets.OPEN_VSX_TOKEN }}
+VSCE_PAT: ${{ secrets.VSCE_PAT }}
 ```
 
 `GH_TOKEN` writes the release commit, tag, and GitHub release. `OVSX_PAT` authenticates the Open VSX CLI. Token values never belong in repository files.
+`VSCE_PAT` authenticates the Visual Studio Marketplace CLI. Token values never belong in repository files.
 
 ## References
 

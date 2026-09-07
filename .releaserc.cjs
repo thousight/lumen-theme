@@ -22,7 +22,8 @@ module.exports = {
       "@semantic-release/exec",
       {
         prepareCmd: "npm run test:package && npm run checksum && npm run test:ui:artifact",
-        publishCmd: "ovsx publish dist/lumen-themes.vsix",
+        publishCmd:
+          'ovsx publish dist/lumen-themes.vsix --skip-duplicate && vsce publish --pat "$VSCE_PAT" --packagePath dist/lumen-themes.vsix --skip-duplicate',
       },
     ],
     [

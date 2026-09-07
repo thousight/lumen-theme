@@ -37,3 +37,12 @@ test("release commits skip the CI and release workflow loop", () => {
   assert.ok(gitPlugin, "semantic-release git plugin must be configured");
   assert.match(gitPlugin[1].message, /\[skip ci\]/);
 });
+
+test("semantic-release publishes the same VSIX to both registries", () => {
+  const execPlugin = releaseConfig.plugins.find(([name]) => name === "@semantic-release/exec");
+  assert.ok(execPlugin, "semantic-release exec plugin must be configured");
+  assert.match(execPlugin[1].publishCmd, /ovsx publish dist\/lumen-themes\.vsix/);
+  assert.match(execPlugin[1].publishCmd, /vsce publish/);
+  assert.match(execPlugin[1].publishCmd, /VSCE_PAT/);
+  assert.match(execPlugin[1].publishCmd, /--packagePath dist\/lumen-themes\.vsix/);
+});
