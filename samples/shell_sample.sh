@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Shell Sample for Lumen Theme
-PROJECT_NAME="Lumen Theme"
+# Shell Sample for Lumen Themes
+PROJECT_NAME="Lumen Themes"
 VERSION="0.2.0"
 
 function log_message() {

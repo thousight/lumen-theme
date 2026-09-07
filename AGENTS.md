@@ -1,6 +1,6 @@
-# Working on Lumen Theme
+# Working on Lumen Themes
 
-Lumen is a VS Code color theme extension with two hand-maintained JSON variants.
+Lumen Themes is a VS Code color theme extension with two hand-maintained JSON variants.
 
 - Edit `themes/lumen-blanc.json` (light) and `themes/lumen-noir.json` (dark) directly. Preserve the existing formatting and keep changes focused on the requested variant or behavior.
 - Read `.planning/DESIGN.md` for visual principles; the theme JSON is authoritative for implemented colors and scopes. Update the design document when a design decision changes.

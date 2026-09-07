@@ -1,4 +1,4 @@
-# Lumen Theme
+# Lumen Themes
 
 A minimal, clean, and high-tech VSCode theme featuring a monochromatic Dark variant (**Noir**) and a "Warm Paper" Light variant (**Blanc**).
 
@@ -48,9 +48,11 @@ _Inspired by the tactile feel of premium stationery._
 ## Installation
 
 1. Open **Extensions** in VS Code (`Ctrl+Shift+X`).
-2. Search for `Lumen Theme`.
+2. Search for `Lumen Themes`.
 3. Click **Install**.
 4. Go to `File > Preferences > Theme > Color Theme` and select `Lumen Noir` or `Lumen Blanc`.
+
+The extension identifier is `thousight.lumen-themes`.
 
 ## Development
 

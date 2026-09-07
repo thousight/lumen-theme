@@ -3,7 +3,7 @@
 namespace Lumen\Verification;
 
 /**
- * PHP Sample for Lumen Theme
+ * PHP Sample for Lumen Themes
  */
 class ThemeVerifier {
     private string $name;

@@ -23,7 +23,7 @@ const colorPattern = /^#[0-9a-f]{6}([0-9a-f]{2})?$/i;
 test("manifest contributes the two maintained themes", async () => {
   const manifest = await parseJson(manifestPath);
   assert.equal(manifest.publisher, "thousight");
-  assert.equal(manifest.name, "lumen-theme");
+  assert.equal(manifest.name, "lumen-themes");
   assert.deepEqual(manifest.contributes.themes, [
     { label: "Lumen Light (Blanc)", uiTheme: "vs", path: "./themes/lumen-blanc.json" },
     { label: "Lumen Dark (Noir)", uiTheme: "vs-dark", path: "./themes/lumen-noir.json" },

@@ -4,7 +4,7 @@
 #define MAX_BUFFER 1024
 
 /**
- * C++ Sample for Lumen Theme
+ * C++ Sample for Lumen Themes
  */
 class Verification {
 public:
