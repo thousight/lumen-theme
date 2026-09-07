@@ -10,4 +10,4 @@ Lumen Themes is a VS Code color theme extension with two hand-maintained JSON va
 - For visual changes, check the affected UI states and language samples in both variants as relevant. Consider TextMate and semantic token rules together. Report visual checks not performed and avoid unsupported accessibility claims.
 - Use Conventional Commit PR titles. `fix` releases a patch, `feat` a minor, and `!` plus a `BREAKING CHANGE:` footer a major. Squash merges preserve the PR title and description for semantic-release.
 - Keep `.planning/`, `AGENTS.md`, and `samples/` excluded from the VSIX through `.vscodeignore`.
-- Semantic-release owns versioning, changelog generation, GitHub releases, and Open VSX publication after `main` passes CI. Do not edit versions or dated changelog entries for routine changes. Never put publisher credentials in repository files.
+- Semantic-release owns versioning, changelog generation, GitHub releases, and extension registry publication after `main` passes CI. Do not edit versions or dated changelog entries for routine changes. Never put publisher credentials in repository files.

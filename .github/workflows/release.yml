@@ -23,6 +23,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       OVSX_PAT: ${{ secrets.OPEN_VSX_TOKEN }}
+      VSCE_PAT: ${{ secrets.VSCE_PAT }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:

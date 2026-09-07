@@ -65,7 +65,7 @@ npm run test:package
 npm run test:ui
 ```
 
-Pull requests use Conventional Commit titles. Merges to `main` release automatically to Open VSX when semantic-release detects a `fix`, `feat`, or breaking change.
+Pull requests use Conventional Commit titles. Merges to `main` release automatically to Open VSX and the Visual Studio Marketplace when semantic-release detects a `fix`, `feat`, or breaking change.
 
 ## License
 

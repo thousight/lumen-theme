@@ -7,7 +7,7 @@ Lumen provides Blanc, a warm paper light theme, and Noir, a dark theme with oran
 - [Design](DESIGN.md): visual principles, current palette roles, and syntax conventions.
 - [Maintenance](MAINTENANCE.md): editing, visual checks, packaging, and release procedure.
 - [Research](research/README.md): primary references and guidance for future research notes.
-- [Testing and automated releases](TESTING-AND-RELEASE.md): proposed rendering tests, CI, and semantic-release publishing to Open VSX; implementation status belongs in GitHub Issues.
+- [Testing and automated releases](TESTING-AND-RELEASE.md): rendering tests, CI, and semantic-release publishing to both extension registries; implementation status belongs in GitHub Issues.
 - [Root changelog](../CHANGELOG.md): user-visible changes and release history.
 
 [GitHub Issues](https://github.com/thousight/lumen-themes/issues) is the source of truth for open work, priorities, bugs, and task status. Link an issue from a design or research note when useful; keep its status on GitHub. There is no local backlog, phase workflow, or session-state file to maintain.
