@@ -14,4 +14,4 @@ function greet() {
 }
 ```
 
-[Link to Repository](https://github.com/marwen/lumen-theme)
+[Link to Repository](https://github.com/thousight/lumen-themes)
