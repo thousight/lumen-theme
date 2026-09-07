@@ -1,3 +1,9 @@
+## [0.4.0](https://github.com/thousight/lumen-themes/compare/v0.3.0...v0.4.0) (2026-09-07)
+
+### Features
+
+* **ci:** publish releases to Visual Studio Marketplace ([#10](https://github.com/thousight/lumen-themes/issues/10)) ([ef857f3](https://github.com/thousight/lumen-themes/commit/ef857f3a6e8b35295865fdd22c993e60847fe37a))
+
 ## [0.3.0](https://github.com/thousight/lumen-themes/compare/v0.2.3...v0.3.0) (2026-09-07)
 
 ### Features
