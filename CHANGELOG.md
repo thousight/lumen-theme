@@ -1,3 +1,9 @@
+## [0.4.1](https://github.com/thousight/lumen-themes/compare/v0.4.0...v0.4.1) (2026-09-08)
+
+### Bug Fixes
+
+* **theme:** align Noir status bar states ([#11](https://github.com/thousight/lumen-themes/issues/11)) ([e392960](https://github.com/thousight/lumen-themes/commit/e39296064b92e84e3f9bf03189f343ad2b57217a))
+
 ## [0.4.0](https://github.com/thousight/lumen-themes/compare/v0.3.0...v0.4.0) (2026-09-07)
 
 ### Features
