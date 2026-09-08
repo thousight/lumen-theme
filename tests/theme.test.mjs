@@ -72,3 +72,12 @@ test("Blanc status bar stays warm white in every explicit state", async () => {
   assert.equal(colors["statusBar.noFolderForeground"], "#1a1a1acc");
   assert.equal(colors["statusBar.debuggingForeground"], "#1a1a1acc");
 });
+
+test("Noir status bar stays dark neutral in every explicit state", async () => {
+  const { colors } = await parseJson(themePaths[1]);
+  assert.equal(colors["statusBar.background"], "#26251e");
+  assert.equal(colors["statusBar.noFolderBackground"], "#26251e");
+  assert.equal(colors["statusBar.debuggingBackground"], "#26251e");
+  assert.equal(colors["statusBar.noFolderForeground"], "#e0e0e0");
+  assert.equal(colors["statusBar.debuggingForeground"], "#e0e0e0");
+});

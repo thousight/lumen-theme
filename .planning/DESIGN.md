@@ -16,9 +16,9 @@ Theme JSON is the source of truth for exact values and scope mappings. The value
 | Strings | Dark green | Soft green |
 | Constants | Muted purple | Soft purple |
 
-Blanc uses neutral interaction backgrounds and a muted syntax palette. Its normal, no-folder, and debugging status bars explicitly share the warm white background, dark foreground, and subtle border.
+Blanc uses neutral interaction backgrounds and a muted syntax palette. Its normal, no-folder, and debugging status bars explicitly share the warm white background, dark foreground, and subtle border. Noir applies the same treatment with its dark neutral background and light foreground.
 
-Noir combines a neutral workbench with orange control-flow and action accents. Its cursor is neutral. Syntax, bracket colors, Git decorations, diagnostics, and terminal ANSI colors also use muted hues. Earlier monochromatic-only plans describe historical intent, not the current palette. Noir currently specifies only the normal status bar colors; do not claim that all alternate states have explicit overrides.
+Noir combines a neutral workbench with orange control-flow and action accents. Its cursor is neutral. Syntax, bracket colors, Git decorations, diagnostics, and terminal ANSI colors also use muted hues. Earlier monochromatic-only plans describe historical intent, not the current palette.
 
 ## Syntax and language coverage
 
